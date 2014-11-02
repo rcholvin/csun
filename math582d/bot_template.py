@@ -116,7 +116,7 @@ if __name__ == "__main__":
 			last_id = -1
 			status = make_twitter_request(bot.statuses.user_timeline)
 			if len(status) > 0:
-				last_id = status[:-1]['in_reply_to_status_id']
+				last_id = status[:-1][0]['in_reply_to_status_id']
 
 			if not mentions:
 				print "No one talking to us now...", time.ctime()
