@@ -18,18 +18,21 @@ def connectMongo():
 conn=connectMongo()
 
 
-                In [6]: conn.database_names()
-Out[6]: [u'admin', u'twitter', u'lines', u'local', u'mydb']
+# In[ ]:
 
-                
+
+
+
 # In[ ]:
 
 db=conn.twitter
 
 
-                In [10]: db.collection_names()
-Out[10]: [u'lines', u'system.indexes', u'system.users', u'system.profile']
-                
+# In[ ]:
+
+
+
+
 # In[ ]:
 
 collection=db.lines
@@ -65,9 +68,13 @@ def searchMongo(name,collection, limit=10):
     if(len(name)>1):
         first=name[0]
         last=name[1]
-    else:
+    elif((len(name)==1):
         first=name[0]
         last=''
+    else:
+        first=''
+        last=''
+        
     line1=r'love.*'+first+' ?'+last
     line2=first+' ?'+last+r'.*love'
     re_exp=re.compile(r'('+line1+r')|('+line2+r')', re.IGNORECASE)
